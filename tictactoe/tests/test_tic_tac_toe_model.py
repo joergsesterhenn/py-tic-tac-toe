@@ -14,5 +14,5 @@ class TicTacToeModelTest(unittest.TestCase):
         self.assertEqual(actual_player, expected_player)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

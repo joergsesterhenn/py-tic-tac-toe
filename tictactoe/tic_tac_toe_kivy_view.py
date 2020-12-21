@@ -15,7 +15,7 @@ class TicTacToeKivyView(App):
         self.input_text = ""
         self.footer_text = ""
         self.root = ""
-        self.title = 'TicTacToe'
+        self.title = "TicTacToe"
         self.root = root = RootWidget()
         return root
 
@@ -24,10 +24,8 @@ class TicTacToeKivyView(App):
         self.rect.size = instance.size
 
 
-
-
-
-Builder.load_string('''
+Builder.load_string(
+    """
 <BoxLayout>
     orientation: 'vertical'
 
@@ -70,7 +68,8 @@ Builder.load_string('''
         text: self.footer_text
         valign: 'middle'
         halign: 'center'
-''')
+"""
+)
 
 
 class RootWidget(BoxLayout):
@@ -78,7 +77,7 @@ class RootWidget(BoxLayout):
         super(RootWidget, self).__init__(**kwargs)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     TicTacToeKivyView().run()
 
 
