@@ -1,5 +1,6 @@
 class TicTacToeModel:
     """The tic-tac-toe model"""
+
     initial_data = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     player_one_sign = "o"
     player_two_sign = "x"
@@ -27,24 +28,24 @@ class TicTacToeModel:
             self.active_player = "eins"
 
     def check_won(self):
-        return (self.data[0][0] == self.data[1][0] == self.data[2][0] and
-                self.data[2][0] in [self.player_one_sign, self.player_two_sign] or
-                self.data[0][1] == self.data[1][1] == self.data[2][1] and
-                self.data[2][1] in [self.player_one_sign, self.player_two_sign] or
-                self.data[0][2] == self.data[1][2] == self.data[2][2] and
-                self.data[2][2] in [self.player_one_sign, self.player_two_sign] or
-
-                self.data[0][0] == self.data[0][1] == self.data[0][2] and
-                self.data[0][2] in [self.player_one_sign, self.player_two_sign] or
-                self.data[1][0] == self.data[1][1] == self.data[1][2] and
-                self.data[1][2] in [self.player_one_sign, self.player_two_sign] or
-                self.data[2][0] == self.data[2][1] == self.data[2][2] and
-                self.data[2][2] in [self.player_one_sign, self.player_two_sign] or
-
-                self.data[0][0] == self.data[1][1] == self.data[2][2] and
-                self.data[2][2] in [self.player_one_sign, self.player_two_sign] or
-                self.data[0][2] == self.data[1][1] == self.data[2][0] and
-                self.data[2][0] in [self.player_one_sign, self.player_two_sign])
+        return (
+            self.data[0][0] == self.data[1][0] == self.data[2][0]
+            and self.data[2][0] in [self.player_one_sign, self.player_two_sign]
+            or self.data[0][1] == self.data[1][1] == self.data[2][1]
+            and self.data[2][1] in [self.player_one_sign, self.player_two_sign]
+            or self.data[0][2] == self.data[1][2] == self.data[2][2]
+            and self.data[2][2] in [self.player_one_sign, self.player_two_sign]
+            or self.data[0][0] == self.data[0][1] == self.data[0][2]
+            and self.data[0][2] in [self.player_one_sign, self.player_two_sign]
+            or self.data[1][0] == self.data[1][1] == self.data[1][2]
+            and self.data[1][2] in [self.player_one_sign, self.player_two_sign]
+            or self.data[2][0] == self.data[2][1] == self.data[2][2]
+            and self.data[2][2] in [self.player_one_sign, self.player_two_sign]
+            or self.data[0][0] == self.data[1][1] == self.data[2][2]
+            and self.data[2][2] in [self.player_one_sign, self.player_two_sign]
+            or self.data[0][2] == self.data[1][1] == self.data[2][0]
+            and self.data[2][0] in [self.player_one_sign, self.player_two_sign]
+        )
 
     def coordinates_taken(self, a, b):
         return self.data[a][b] != " "

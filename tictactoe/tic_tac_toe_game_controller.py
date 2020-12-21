@@ -11,14 +11,23 @@ class TicTacToeGameController:
 
     def run_tic_tac_toe(self):
         while not self.model.check_won():
-            x, y = self.view.get_player_input(self.model.active_player, self.model.get_data())
+            x, y = self.view.get_player_input(
+                self.model.active_player, self.model.get_data()
+            )
             if self.model.coordinates_taken(x, y):
-                self.view.set_error("Koordinaten " + str(x) + " " + str(y) +
-                                    " sind schon belegt! Wähle andere Koordinaten ")
+                self.view.set_error(
+                    "Koordinaten "
+                    + str(x)
+                    + " "
+                    + str(y)
+                    + " sind schon belegt! Wähle andere Koordinaten "
+                )
                 continue
             self.model.set_mark(x, y)
             if self.model.check_won():
-                self.view.congratulate_player(self.model.active_player, self.model.get_data())
+                self.view.congratulate_player(
+                    self.model.active_player, self.model.get_data()
+                )
             self.model.switch_player()
 
 
