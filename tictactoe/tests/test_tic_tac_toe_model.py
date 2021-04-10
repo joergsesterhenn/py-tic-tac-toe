@@ -7,6 +7,7 @@ class TicTacToeModelTest(unittest.TestCase):
     cut = TicTacToeModel()
 
     def test_switch_player(self):
+        """Test if player was correctly switched."""
         self.cut.active_player = "eins"
         self.cut.switch_player()
         actual_player = self.cut.active_player
