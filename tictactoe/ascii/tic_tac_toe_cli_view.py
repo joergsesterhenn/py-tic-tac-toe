@@ -42,7 +42,8 @@ class TicTacToeCLIView:
                 valid_reply_received = True
         return map(int, self.input_text.split())
 
-    def congratulate_player(self, spieler, data):
+    @staticmethod
+    def congratulate_player(spieler, data):
         print_field(data)
         print(f'        Gratulation Spieler {spieler} du hast gewonnen!')
         print('    ###################################################')

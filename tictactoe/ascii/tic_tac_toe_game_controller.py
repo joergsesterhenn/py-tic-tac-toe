@@ -1,5 +1,5 @@
 from tictactoe.tic_tac_toe_model import TicTacToeModel
-from tictactoe.tic_tac_toe_kivy_view import TicTacToeKivyView
+from ascii.tic_tac_toe_cli_view import TicTacToeCLIView
 
 
 class TicTacToeGameController:
@@ -7,7 +7,7 @@ class TicTacToeGameController:
 
     def __init__(self):
         self.model = TicTacToeModel()
-        self.view = TicTacToeKiviView()
+        self.view = TicTacToeCLIView()
 
     def run_tic_tac_toe(self):
         while not self.model.check_won():
