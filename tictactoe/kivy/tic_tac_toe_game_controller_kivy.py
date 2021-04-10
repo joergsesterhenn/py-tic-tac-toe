@@ -3,7 +3,7 @@ from tic_tac_toe_kivy_view import TicTacToeKivyView
 
 
 class TicTacToeGameController:
-    """The tic-tac-toe game controller"""
+    """The tic-tac-toe game controller."""
 
     def __init__(self):
         self.model = TicTacToeModel()
@@ -14,7 +14,7 @@ class TicTacToeGameController:
         self.view.run()
 
     def take_coordinates(self, x, y):
-        """gets called when button is pressed to select coordinates"""
+        """gets called when button is pressed to select coordinates."""
         if not self.model.check_won():
             if self.model.coordinates_taken(x, y):
                 self.view.set_error("Koordinaten " + str(x) + " " + str(y) +

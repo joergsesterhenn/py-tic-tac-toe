@@ -5,12 +5,9 @@ from kivy.lang import Builder
 
 
 class TicTacToeKivyView(App):
-    """The tic-tac-toe Kivy view"""
+    """The tic-tac-toe Kivy view."""
 
     controller = ObjectProperty()
-
-    def __init__(self, **kwargs):
-        super(TicTacToeKivyView, self).__init__(**kwargs)
 
     def build(self):
         self.root = ""
@@ -36,9 +33,6 @@ class TicTacToeKivyView(App):
 class RootWidget(BoxLayout):
     footer_text = StringProperty()
     input_text = StringProperty()
-
-    def __init__(self, **kwargs):
-        super(RootWidget, self).__init__(**kwargs)
 
 
 Builder.load_file("mainview.kv")

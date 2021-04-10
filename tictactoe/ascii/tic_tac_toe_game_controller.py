@@ -3,7 +3,7 @@ from ascii.tic_tac_toe_cli_view import TicTacToeCLIView
 
 
 class TicTacToeGameController:
-    """The tic-tac-toe game controller"""
+    """The tic-tac-toe game controller."""
 
     def __init__(self):
         self.model = TicTacToeModel()

@@ -1,5 +1,5 @@
 class TicTacToeModel:
-    """The tic-tac-toe model"""
+    """The tic-tac-toe model."""
     initial_data = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     player_one_sign = "o"
     player_two_sign = "x"
@@ -17,8 +17,7 @@ class TicTacToeModel:
     def get_active_player_sign(self):
         if self.active_player == "eins":
             return self.player_one_sign
-        else:
-            return self.player_two_sign
+        return self.player_two_sign
 
     def switch_player(self):
         if self.active_player == "eins":

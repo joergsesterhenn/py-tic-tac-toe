@@ -1,9 +1,4 @@
-from os import system
-
-
 def print_field(data):
-    system('cls')
-
     print("""    ###################################################
                 T I C    T A C    T O E
     ###################################################
@@ -22,7 +17,7 @@ def is_not_valid(text):
 
 
 class TicTacToeCLIView:
-    """The tic-tac-toe CLI view"""
+    """The tic-tac-toe CLI view."""
 
     def __init__(self):
         self.error_text = ""
