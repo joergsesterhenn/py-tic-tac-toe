@@ -17,8 +17,13 @@ class TicTacToeGameController:
         """gets called when button is pressed to select coordinates"""
         if not self.model.check_won():
             if self.model.coordinates_taken(x, y):
-                self.view.set_error("Koordinaten " + str(x) + " " + str(y) +
-                                    " sind schon belegt! Wähle andere Koordinaten ")
+                self.view.set_error(
+                    "Koordinaten "
+                    + str(x)
+                    + " "
+                    + str(y)
+                    + " sind schon belegt! Wähle andere Koordinaten "
+                )
             else:
                 self.view.set_error("")
                 self.model.set_mark(x, y)
