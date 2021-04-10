@@ -10,6 +10,7 @@ class TicTacToeGameController:
         self.view = TicTacToeCLIView()
 
     def run_tic_tac_toe(self):
+        """Run the game."""
         while not self.model.check_won():
             x, y = self.view.get_player_input(
                 self.model.active_player, self.model.get_data()

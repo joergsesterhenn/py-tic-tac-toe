@@ -11,10 +11,11 @@ class TicTacToeGameController:
         self.view.controller = self
 
     def run_tic_tac_toe(self):
+        """Run the game."""
         self.view.run()
 
     def take_coordinates(self, x, y):
-        """gets called when button is pressed to select coordinates."""
+        """Take coordinates x/y for active player when button is pressed."""
         if not self.model.check_won():
             if self.model.coordinates_taken(x, y):
                 self.view.set_error(
