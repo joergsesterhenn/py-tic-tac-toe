@@ -1,5 +1,6 @@
 class TicTacToeModel:
     """The tic-tac-toe model."""
+
     initial_data = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     player_one_sign = "o"
     player_two_sign = "x"

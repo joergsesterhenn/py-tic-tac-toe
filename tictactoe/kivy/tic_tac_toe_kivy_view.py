@@ -39,6 +39,7 @@ class TicTacToeKivyView(App):
 
 class RootWidget(BoxLayout):
     """The root widget of the app."""
+
     footer_text = StringProperty()
     input_text = StringProperty()
 
