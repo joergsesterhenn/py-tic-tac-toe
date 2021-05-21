@@ -11,7 +11,7 @@ class TicTacToeGameController:
 
     def run_tic_tac_toe(self):
         """Run the game."""
-        while not self.model.check_won():
+        while not self.model.game_won():
             x, y = self.view.get_player_input(
                 self.model.active_player, self.model.get_data()
             )
@@ -25,7 +25,7 @@ class TicTacToeGameController:
                 )
                 continue
             self.model.set_mark(x, y)
-            if self.model.check_won():
+            if self.model.game_won():
                 self.view.congratulate_player(
                     self.model.active_player, self.model.get_data()
                 )
