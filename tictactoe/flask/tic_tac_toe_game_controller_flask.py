@@ -2,7 +2,9 @@ from flask import Flask, Response, render_template, request
 from tictactoe.tic_tac_toe_model import TicTacToeModel
 
 
-class EndpointAction(object):
+class EndpointAction:
+    """EndpointAction enables adding routes without annotations."""
+
     def __init__(self, action):
         self.action = action
 
@@ -15,7 +17,8 @@ class EndpointAction(object):
         return self.response
 
 
-class TicTacToeGameController(object):
+class TicTacToeGameController:
+    """The tic-tac-toe game controller."""
     app = None
     model = None
     anweisung_text = ""
@@ -34,14 +37,22 @@ class TicTacToeGameController(object):
         self.add_all_endpoints()
 
     def run(self):
+        """Run the flask App."""
         self.app.run(debug=False, use_reloader=False)
 
-    def add_endpoint(self, endpoint=None, endpoint_name=None, handler=None, **options):
-        self.app.add_url_rule(
-            endpoint, endpoint_name, EndpointAction(handler), **options
-        )
+    def add_endpoint(self,
+                     endpoint=None,
+                     endpoint_name=None,
+                     handler=None,
+                     **options):
+        """Add an endpoint/route to the controller."""
+        self.app.add_url_rule(endpoint,
+                              endpoint_name,
+                              EndpointAction(handler),
+                              **options)
 
     def add_all_endpoints(self):
+        """Add all endpoints/routes to the controller."""
         # Add root endpoint
         self.add_endpoint(
             endpoint="/",
@@ -59,6 +70,7 @@ class TicTacToeGameController(object):
         )
 
     def get_model(self):
+        """Get the model."""
         return self.model
 
     def tic_tac_toe_game(self):
@@ -96,19 +108,20 @@ class TicTacToeGameController(object):
                 controller.images[x][y] = filename
 
                 if self.get_model().game_won():
-                    self.congratulate_player(self.get_model().get_active_player_name())
+                    self.congratulate_player(
+                        self.get_model().get_active_player_name())
                 else:
                     self.get_model().switch_player()
 
-        return render_template(
-            "tic_tac_toe_flask_view.html",
-            anweisungen=self.anweisung_text,
-            meldungen=self.meldung_text,
-            images=self.images,
-        )
+        return render_template('tic_tac_toe_flask_view.html',
+                               anweisungen=self.anweisung_text,
+                               meldungen=self.meldung_text,
+                               images=self.images)
 
     def congratulate_player(self, active_player):
-        self.meldung_text = "Herzlichen Glückwunsch Spieler " + active_player + " !"
+        """Prepare congratulation message."""
+        self.meldung_text = "Herzlichen Glückwunsch Spieler " \
+                            + active_player + " !"
 
 
 controller = TicTacToeGameController("TicTacToeGameController")
