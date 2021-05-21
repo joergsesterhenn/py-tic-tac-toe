@@ -17,8 +17,12 @@ class TicTacToeModel:
         """Return the current datamodel."""
         return self.data
 
+    def get_active_player_name(self):
+        """Get name of active player."""
+        return self.active_player
+
     def get_active_player_sign(self):
-        """Get name of active player (eins/zwei)."""
+        """Get sign of active player."""
         if self.active_player == "eins":
             return self.player_one_sign
         return self.player_two_sign
@@ -30,25 +34,25 @@ class TicTacToeModel:
         else:
             self.active_player = "eins"
 
-    def check_won(self):
+    def game_won(self):
         """Check if the game is won."""
         return (
             self.data[0][0] == self.data[1][0] == self.data[2][0]
-            and self.data[2][0] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(2, 0)
             or self.data[0][1] == self.data[1][1] == self.data[2][1]
-            and self.data[2][1] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(2, 1)
             or self.data[0][2] == self.data[1][2] == self.data[2][2]
-            and self.data[2][2] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(2, 2)
             or self.data[0][0] == self.data[0][1] == self.data[0][2]
-            and self.data[0][2] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(0, 2)
             or self.data[1][0] == self.data[1][1] == self.data[1][2]
-            and self.data[1][2] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(1, 2)
             or self.data[2][0] == self.data[2][1] == self.data[2][2]
-            and self.data[2][2] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(2, 2)
             or self.data[0][0] == self.data[1][1] == self.data[2][2]
-            and self.data[2][2] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(2, 2)
             or self.data[0][2] == self.data[1][1] == self.data[2][0]
-            and self.data[2][0] in [self.player_one_sign, self.player_two_sign]
+            and self.coordinates_taken(2, 0)
         )
 
     def coordinates_taken(self, a, b):

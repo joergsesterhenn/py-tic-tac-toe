@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pytest = "6.2.2"
 flake8 = "3.9.0"
+Flask = "1.1.2"
 
 [packages]
 kivy  = "2.0.0"

@@ -21,10 +21,10 @@ class TicTacToeKivyView(App):
         """Display error message."""
         self.root.footer_text = text
 
-    def set_coordinates_to(self, x, y, player):
+    def set_coordinates_to(self, x, y, mark_filename):
         """Set players mark on coordinates."""
         getattr(self.root.ids, str(x) + "_" + str(y)).source = (
-            "images/" + player + ".png"
+            "images/" + mark_filename + ".png"
         )
 
     def set_player(self, player):
