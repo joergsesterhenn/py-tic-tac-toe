@@ -1,5 +1,5 @@
 from flask import Flask, Response, render_template, request
-from tictactoe.tic_tac_toe_model import TicTacToeModel
+from tictactoe.model.tic_tac_toe_model import TicTacToeModel
 
 
 class EndpointAction:
@@ -31,7 +31,7 @@ class TicTacToeGameController:
             name,
             static_url_path="",
             static_folder="",
-            template_folder="flask/templates",
+            template_folder="templates",
         )
         self.model = TicTacToeModel()
         self.images = [[0] * 3 for _ in range(3)]

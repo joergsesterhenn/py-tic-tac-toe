@@ -1,5 +1,5 @@
-from tictactoe.tic_tac_toe_model import TicTacToeModel
-from ascii.tic_tac_toe_cli_view import TicTacToeCLIView
+from tictactoe.model.tic_tac_toe_model import TicTacToeModel
+from tic_tac_toe_cli_view import TicTacToeCLIView
 
 
 class TicTacToeGameController:

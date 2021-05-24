@@ -1,5 +1,5 @@
 from tic_tac_toe_kivy_view import TicTacToeKivyView
-from tictactoe.tic_tac_toe_model import TicTacToeModel
+from tictactoe.model.tic_tac_toe_model import TicTacToeModel
 
 
 class TicTacToeGameController:
