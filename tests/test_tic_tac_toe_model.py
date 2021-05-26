@@ -4,6 +4,7 @@ from tictactoe.model.tic_tac_toe_model import TicTacToeModel
 
 class TicTacToeModelTest(unittest.TestCase):
     """Test the model."""
+
     cut = TicTacToeModel()
 
     def test_switch_player(self):
