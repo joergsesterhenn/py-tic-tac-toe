@@ -104,7 +104,8 @@ class TicTacToeGameController:
                 self.images[x][y] = filename
 
                 if self.get_model().game_won():
-                    self.congratulate_player(self.get_model().get_active_player_name())
+                    self.congratulate_player(
+                        self.get_model().get_active_player_name())
                 else:
                     self.get_model().switch_player()
 

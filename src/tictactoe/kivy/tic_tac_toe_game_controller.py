@@ -33,7 +33,8 @@ class TicTacToeGameController:
                     filename = str(2)
                 self.view.set_coordinates_to(x, y, filename)
                 if self.model.game_won():
-                    self.view.congratulate_player(self.model.get_active_player_name())
+                    self.view.congratulate_player(
+                        self.model.get_active_player_name())
                 else:
                     self.model.switch_player()
                     self.view.set_player(self.model.get_active_player_name())
