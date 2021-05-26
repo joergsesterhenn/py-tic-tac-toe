@@ -24,7 +24,7 @@
               <td style="width:50px;height:50px">
                 {% set col_count = loop.index0 %}
                 <form id="form_{{row_count}}_{{col_count}}" action="{{ url_for('/take_coordinates') }}" method="POST">
-                  <input type="image" id="image_{{row_count}}_{{col_count}}" src="/images/{{col}}.png" style="width:50px;height:50px"/>
+                  <input type="image" id="image_{{row_count}}_{{col_count}}" src="{{col}}.png" style="width:50px;height:50px"/>
                   <input type="hidden" id="input_a_{{row_count}}_{{col_count}}" name="a" value="{{row_count}}"/>
                   <input type="hidden" id="input_b_{{row_count}}_{{col_count}}" name="b" value="{{col_count}}"/>
                 </form>

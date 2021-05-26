@@ -1,5 +1,5 @@
 from tictactoe.model.tic_tac_toe_model import TicTacToeModel
-from tic_tac_toe_cli_view import TicTacToeCLIView
+from tictactoe.ascii.tic_tac_toe_cli_view import TicTacToeCLIView
 
 
 class TicTacToeGameController:
@@ -9,7 +9,7 @@ class TicTacToeGameController:
         self.model = TicTacToeModel()
         self.view = TicTacToeCLIView()
 
-    def run_tic_tac_toe(self):
+    def run(self):
         """Run the game."""
         while not self.model.game_won():
             x, y = self.view.get_player_input(
@@ -30,7 +30,3 @@ class TicTacToeGameController:
                     self.model.active_player, self.model.get_data()
                 )
             self.model.switch_player()
-
-
-controller = TicTacToeGameController()
-controller.run_tic_tac_toe()

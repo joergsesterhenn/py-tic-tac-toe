@@ -1,16 +1,15 @@
-from tic_tac_toe_kivy_view import TicTacToeKivyView
+from tictactoe.kivy.tic_tac_toe_kivy_view import TicTacToeKivyView
 from tictactoe.model.tic_tac_toe_model import TicTacToeModel
 
 
 class TicTacToeGameController:
     """The tic-tac-toe game controller."""
 
-    def __init__(self):
+    def __init__(self, image_path):
         self.model = TicTacToeModel()
-        self.view = TicTacToeKivyView()
-        self.view.controller = self
+        self.view = TicTacToeKivyView(image_path, self)
 
-    def run_tic_tac_toe(self):
+    def run(self):
         """Run the game."""
         self.view.run()
 
@@ -38,7 +37,3 @@ class TicTacToeGameController:
                 else:
                     self.model.switch_player()
                     self.view.set_player(self.model.get_active_player_name())
-
-
-controller = TicTacToeGameController()
-controller.run_tic_tac_toe()

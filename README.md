@@ -8,8 +8,22 @@ Currently, the following user interfaces are implemented:
 * standalone window (kivy framework) 
 * web app (flask framework)
 
-## install
+## update dependencies
 
-1. checkout main
-2. pipenv install to install dependencies listed in pipfile
-3. run 
+* poetry update
+
+## build
+
+* poetry build
+
+## run tests
+
+* poetry run pytest
+
+## run the applications
+
+* poetry run ascii
+* poetry run kivy
+* poetry run flask
+
+

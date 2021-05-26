@@ -1,3 +1,7 @@
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "tictactoe"
 version = "0.0.1"
@@ -6,17 +10,12 @@ authors = [
     "Jörg Sesterhenn <mail@me.not>"
 ]
 license = "MIT"
-
 readme = "README.md"
-
 include = [
     { path = "tests", format = "sdist" }
 ]
-
 repository = "https://github.com/joergsesterhenn/py-tic-tac-toe/"
-
 keywords = ["tictactoe", "kivy", "flask", "ascii"]
-
 classifiers = [
   "Programming Language :: Python :: 3.9",
   "License :: OSI Approved :: MIT License",
@@ -26,7 +25,7 @@ classifiers = [
 ]
 
 [tool.poetry.build]
-generate-setup-file = true
+generate-setup-file = false
 
 # Requirements
 [tool.poetry.dependencies]
@@ -46,16 +45,13 @@ httpretty = "^1.0"
 zipp = { version = "^3.4", python = "<3.8"}
 deepdiff = "^5.0"
 
-#[tool.poetry.scripts]
-#poetry = "poetry.console.application:main"
-
-[build-system]
-requires = ["poetry_core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.scripts]
+ascii = "tictactoe.ascii.main:run"
+kivy = "tictactoe.kivy.main:run"
+flask = "tictactoe.flask.main:run"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/joergsesterhenn/py-tic-tac-toe/issues"
-
 
 
 
