@@ -7,4 +7,3 @@ def run():
     image_path = os.path.abspath("images")
     controller = TicTacToeGameController("TicTacToe", image_path)
     controller.run()
-
