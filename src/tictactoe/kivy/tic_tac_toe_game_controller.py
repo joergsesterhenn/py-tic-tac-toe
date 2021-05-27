@@ -1,16 +1,15 @@
-from tic_tac_toe_kivy_view import TicTacToeKivyView
-from tictactoe.tic_tac_toe_model import TicTacToeModel
+from tictactoe.kivy.tic_tac_toe_kivy_view import TicTacToeKivyView
+from tictactoe.model.tic_tac_toe_model import TicTacToeModel
 
 
 class TicTacToeGameController:
     """The tic-tac-toe game controller."""
 
-    def __init__(self):
+    def __init__(self, image_path):
         self.model = TicTacToeModel()
-        self.view = TicTacToeKivyView()
-        self.view.controller = self
+        self.view = TicTacToeKivyView(image_path, self)
 
-    def run_tic_tac_toe(self):
+    def run(self):
         """Run the game."""
         self.view.run()
 
@@ -34,11 +33,8 @@ class TicTacToeGameController:
                     filename = str(2)
                 self.view.set_coordinates_to(x, y, filename)
                 if self.model.game_won():
-                    self.view.congratulate_player(self.model.get_active_player_name())
+                    self.view.congratulate_player(
+                        self.model.get_active_player_name())
                 else:
                     self.model.switch_player()
                     self.view.set_player(self.model.get_active_player_name())
-
-
-controller = TicTacToeGameController()
-controller.run_tic_tac_toe()

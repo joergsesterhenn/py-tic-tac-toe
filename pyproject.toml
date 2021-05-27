@@ -1,0 +1,57 @@
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "tictactoe"
+version = "0.0.1"
+description = "A tic-tac-toe game written in python with different user interfaces all using the same datamodel."
+authors = [
+    "Jörg Sesterhenn <mail@me.not>"
+]
+license = "MIT"
+readme = "README.md"
+include = [
+    { path = "tests", format = "sdist" }
+]
+repository = "https://github.com/joergsesterhenn/py-tic-tac-toe/"
+keywords = ["tictactoe", "kivy", "flask", "ascii"]
+classifiers = [
+  "Programming Language :: Python :: 3.9",
+  "License :: OSI Approved :: MIT License",
+  "Framework :: Flask",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python"
+]
+
+[tool.poetry.build]
+generate-setup-file = false
+
+# Requirements
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "2.0.1"
+kivy = "2.0.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "3.9.2"
+pytest = "^6.2"
+pytest-cov = "^2.8"
+pytest-mock = "^3.5"
+pre-commit = { version = "^2.6", python = "^3.6.1" }
+tox = "^3.0"
+pytest-sugar = "^0.9"
+httpretty = "^1.0"
+zipp = { version = "^3.4", python = "<3.8"}
+deepdiff = "^5.0"
+
+[tool.poetry.scripts]
+ascii = "tictactoe.ascii.main:run"
+kivy = "tictactoe.kivy.main:run"
+flask = "tictactoe.flask.main:run"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/joergsesterhenn/py-tic-tac-toe/issues"
+
+
+

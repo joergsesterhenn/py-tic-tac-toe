@@ -7,3 +7,23 @@ Currently, the following user interfaces are implemented:
 * commandline ASCII (pure python)
 * standalone window (kivy framework) 
 * web app (flask framework)
+
+## update dependencies
+
+* poetry update
+
+## build
+
+* poetry build
+
+## run tests
+
+* poetry run pytest
+
+## run the applications
+
+* poetry run ascii
+* poetry run kivy
+* poetry run flask
+
+

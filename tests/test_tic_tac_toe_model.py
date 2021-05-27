@@ -1,8 +1,9 @@
 import unittest
-from tictactoe.tic_tac_toe_model import TicTacToeModel
+from tictactoe.model.tic_tac_toe_model import TicTacToeModel
 
 
 class TicTacToeModelTest(unittest.TestCase):
+    """Test the model."""
 
     cut = TicTacToeModel()
 
