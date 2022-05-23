@@ -18,7 +18,7 @@ Currently, the following user interfaces are implemented:
 
 ## run tests
 
-* poetry run pytest
+* poetry run pytest --cov=tictactoe tests/
 
 ## run the applications
 
