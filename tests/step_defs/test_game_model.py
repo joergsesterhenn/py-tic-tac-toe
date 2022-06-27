@@ -9,6 +9,7 @@ def my_game_model():
     model = TicTacToeModel()
     return model
 
+
 @given("Player one needs only coordinates 1 1 to win", target_fixture="game_model")
 def coordinates_not_taken(game_model):
     game_model.data[1][1] = ' '
@@ -30,10 +31,12 @@ def player_ones_turn(game_model):
     game_model.active_player = "eins"
     return game_model
 
+
 @given("Player two has to move", target_fixture="game_model")
 def player_ones_turn(game_model):
     game_model.active_player = "zwei"
     return game_model
+
 
 @when("A player makes a move to coordinates 1 1", target_fixture="game_model")
 def move(game_model):
