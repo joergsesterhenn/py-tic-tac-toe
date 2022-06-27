@@ -36,7 +36,7 @@ kivy = "2.0.0"
 [tool.poetry.dev-dependencies]
 flake8 = "3.9.2"
 pytest = "^6.2"
-pytest-bdd = "^4.0.2"
+pytest-bdd = "^5.0.0"
 pytest-cov = "^2.8"
 pytest-mock = "^3.5"
 pytest-flask = "^1.2.0"
