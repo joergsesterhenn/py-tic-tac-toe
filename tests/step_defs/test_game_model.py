@@ -11,7 +11,7 @@ def my_game_model():
 
 
 @given("Player one needs only coordinates 1 1 to win", target_fixture="game_model")
-def coordinates_not_taken(game_model):
+def player_one_winning(game_model):
     game_model.data[1][1] = ' '
     game_model.data[0][1] = 'o'
     game_model.data[2][1] = 'o'
@@ -19,7 +19,7 @@ def coordinates_not_taken(game_model):
 
 
 @given("Player two needs only coordinates 1 1 to win", target_fixture="game_model")
-def coordinates_not_taken(game_model):
+def player_two_winning(game_model):
     game_model.data[1][1] = ' '
     game_model.data[0][1] = 'x'
     game_model.data[2][1] = 'x'
@@ -33,7 +33,7 @@ def player_ones_turn(game_model):
 
 
 @given("Player two has to move", target_fixture="game_model")
-def player_ones_turn(game_model):
+def player_two_turn(game_model):
     game_model.active_player = "zwei"
     return game_model
 
