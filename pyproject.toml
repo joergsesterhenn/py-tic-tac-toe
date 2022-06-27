@@ -34,13 +34,12 @@ flask = "2.0.1"
 kivy = "2.0.0"
 
 [tool.poetry.dev-dependencies]
-flake8 = "3.9.2"
-pytest = "^6.2"
-pytest-bdd = "^4.0.2"
-pytest-cov = "^2.8"
-pytest-mock = "^3.5"
+flake8 = "4.0.1"
+pytest = "^7.1"
+pytest-bdd = "^5.0.0"
+pytest-cov = "^3.0"
+pytest-mock = "^3.8"
 pytest-flask = "^1.2.0"
-pytest-sugar = "^0.9"
 
 [tool.poetry.scripts]
 ascii = "tictactoe.ascii.main:run"
