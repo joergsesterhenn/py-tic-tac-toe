@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name:  Build and Test on python ${{ matrix.python-version }}, ${{ matrix.poetry-version }} and ${{ matrix.os }}
+    name: Build and Test on python ${{ matrix.python-version }}, ${{ matrix.poetry-version }} and ${{ matrix.os }}
     strategy:
         fail-fast: false
         matrix:
@@ -50,7 +50,6 @@ jobs:
     name: Deploy to Heroku
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy to Heroku
     - uses: actions/checkout@v2
     - uses: AkhileshNS/heroku-deploy@v3.12.12
       with:
