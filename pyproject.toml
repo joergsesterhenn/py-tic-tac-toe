@@ -34,7 +34,7 @@ flask = "2.1.2"
 kivy = "2.1.0"
 
 [tool.poetry.dev-dependencies]
-flake8 = "4.0.1"
+flake8 = "5.0.3"
 pytest = "^7.1"
 pytest-bdd = "^5.0.0"
 pytest-cov = "^3.0"
