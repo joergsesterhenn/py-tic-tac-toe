@@ -30,7 +30,7 @@ generate-setup-file = false
 # Requirements
 [tool.poetry.dependencies]
 python = "^3.9"
-flask = "2.1.2"
+flask = "2.2.0"
 kivy = "2.1.0"
 
 [tool.poetry.dev-dependencies]
