@@ -44,21 +44,3 @@ jobs:
     - name: Test with pytest
       run: |
         poetry run pytest --cov=tictactoe tests/
-
-  deploy:
-    needs: build
-    name: Deploy to Heroku
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: AkhileshNS/heroku-deploy@v3.12.12
-      with:
-        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        # Email that you use with heroku
-        heroku_email: ${{ secrets.HEROKU_EMAIL }}
-        # The appname to use for deploying/updating
-        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-        # The branch that you would like to deploy to Heroku
-        branch: main
-        # Will deploy using Dockerfile in project root.
-        usedocker: true
