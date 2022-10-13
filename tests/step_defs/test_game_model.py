@@ -1,4 +1,4 @@
-from pytest_bdd import scenarios, given, when, then
+from pytest_bdd import scenarios, given, when, then, parsers
 from tictactoe.model.tic_tac_toe_model import TicTacToeModel
 
 scenarios('../features')
@@ -26,15 +26,12 @@ def player_two_winning(game_model):
     return game_model
 
 
-@given("Player one has to move", target_fixture="game_model")
-def player_ones_turn(game_model):
-    game_model.active_player = "eins"
-    return game_model
-
-
-@given("Player two has to move", target_fixture="game_model")
-def player_two_turn(game_model):
-    game_model.active_player = "zwei"
+@given(parsers.parse("Player {player} has to move"), target_fixture="game_model")
+def player_ones_turn(game_model, player):
+    if player == 'one':
+        game_model.active_player = "eins"
+    if player == 'two':
+        game_model.active_player = "zwei"
     return game_model
 
 
@@ -64,3 +61,12 @@ def one_active(game_model):
 @then("Player two is active")
 def two_active(game_model):
     assert game_model.get_active_player_name() == "zwei"
+
+
+@then(parsers.parse("Coordinates {x:d} {y:d} are taken"))
+def coordinates_taken(game_model, x, y):
+    assert game_model.coordinates_taken(x, y) is True
+
+@then(parsers.parse("Coordinates {x:d} {y:d} are not taken"))
+def coordinates_taken(game_model, x, y):
+    assert game_model.coordinates_taken(x, y) is False
