@@ -34,10 +34,10 @@ flask = "2.2.2"
 kivy = "2.1.0"
 
 [tool.poetry.dev-dependencies]
-flake8 = "4.0.1"
+flake8 = "5.0.4"
 pytest = "^7.1"
 pytest-bdd = "^6.0.1"
-pytest-cov = "^4.0.0"
+pytest-cov = "^4.0"
 pytest-mock = "^3.10"
 pytest-flask = "^1.2.0"
 
@@ -54,4 +54,3 @@ name = "jfrog"
 url = "https://joerg.sesterhenn@gmail.com:AKCp8nGu6oT5U11sZFNhpGeoxxVSGtCLirw33VaNzbBj7mYtFbjGPN7q1XuQYvyn97a8CVJp5@joergsesterhenn.jfrog.io/artifactory/api/pypi/default-pypi/simple"
 default = true
 secondary = false
-
