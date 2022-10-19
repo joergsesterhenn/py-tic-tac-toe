@@ -21,13 +21,13 @@ jobs:
         with:
           python-version: "3.9.5"
       
-      - name: Run image
-        uses: abatilo/actions-poetry@v2
-        with:
-          poetry-version: "1.1.15"
+      # - name: Run image
+      #   uses: abatilo/actions-poetry@v2
+      #   with:
+      #     poetry-version: "1.1.15"
 
-      - name: export requirements.txt
-        run: poetry export -f requirements.txt --output requirements.txt
+      # - name: export requirements.txt
+      #   run: poetry export -f requirements.txt --output requirements.txt
 
       - name: Let frogbot jump on it 
         uses: jfrog/frogbot@v2
@@ -52,7 +52,7 @@ jobs:
 
           # [Optional]
           # The requirements file that used to install the dependencies. ( pip install -r <JF_REQUIREMENTS_FILE> )
-          JF_REQUIREMENTS_FILE: "requirements.txt"
+          # JF_REQUIREMENTS_FILE: "requirements.txt"
 
           # [Optional, default: https://api.github.com]
           # API endpoint to GitHub
@@ -64,7 +64,7 @@ jobs:
 
           # [Optional]
           # Xray Watches. Learn more about them here: https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches
-          JF_WATCHES: keepitsecure
+          JF_WATCHES: "keepitsecure"
 
           # [Optional, default: "."]
           # Relative path to the project in the git repository
