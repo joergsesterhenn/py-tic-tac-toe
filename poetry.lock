@@ -447,7 +447,7 @@ reference = "jfrog"
 name = "py"
 version = "1.11.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -758,7 +758,7 @@ reference = "jfrog"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "bbb0d17f9e8cb18005eded69780fa5101f4f3792f72583f633010623ab806cbb"
+content-hash = "89b58620685043ff2227595e9208c0f507247c17ca42264c3d6c9fc2983ca6af"
 
 [metadata.files]
 attrs = [
