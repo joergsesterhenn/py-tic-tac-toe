@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Tic Tac Toe</title>
+    <!-- Bootstrap -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="center">
+        <h1>Tic Tac Toe</h1>
+        <table class="table table-bordered" style="width:150px;height:150px">
+          {% for row in images %}
+          {% set row_count = loop.index0 %}
+          <tr>
+            {% for col in row %}
+              <td style="width:50px;height:50px">
+                {% set col_count = loop.index0 %}
+                <form id="form_{{row_count}}_{{col_count}}" action="{{ url_for('/take_coordinates') }}" method="POST">
+                  <input type="image" id="image_{{row_count}}_{{col_count}}" src="{{col}}.png" style="width:50px;height:50px"/>
+                  <input type="hidden" id="input_a_{{row_count}}_{{col_count}}" name="a" value="{{row_count}}"/>
+                  <input type="hidden" id="input_b_{{row_count}}_{{col_count}}" name="b" value="{{col_count}}"/>
+                </form>
+              </td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+
+        <div id="messages" style="width:200px">
+            <div class="alert alert-primary" role="alert">{{ anweisungen }}</div>
+            <div class="alert alert-secondary" role="alert">{{ meldungen }}</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

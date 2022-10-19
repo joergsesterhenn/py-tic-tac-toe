@@ -1,0 +1,6 @@
+version: 1
+type: poetry
+resolver:
+  serverId: joergsesterhenn
+deployer:
+  serverId: joergsesterhenn

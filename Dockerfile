@@ -1,13 +1,13 @@
 # This Dockerfile uses multi-stage build to customize DEV and PROD images:
 # https://docs.docker.com/develop/develop-images/multistage-build/
 
-FROM python:3.9.5-slim-buster AS development_build
+# https://www.mktr.ai/the-data-scientists-quick-guide-to-dockerfiles-with-examples/
+
+FROM python:3.9.15-slim-buster AS development_build
 
 ARG FLASK_ENV
 
 ENV FLASK_ENV=${FLASK_ENV} \
-  # build:
-  BUILD_ONLY_PACKAGES='wget' \
   # python:
   PYTHONFAULTHANDLER=1 \
   PYTHONUNBUFFERED=1 \
@@ -17,17 +17,12 @@ ENV FLASK_ENV=${FLASK_ENV} \
   PIP_NO_CACHE_DIR=off \
   PIP_DISABLE_PIP_VERSION_CHECK=on \
   PIP_DEFAULT_TIMEOUT=100 \
-  # dockerize:
-  DOCKERIZE_VERSION=v0.6.1 \
-  # tini:
-  TINI_VERSION=v0.19.0 \
   # poetry:
-  POETRY_VERSION=1.1.6 \
+  POETRY_VERSION=1.2.2 \
   POETRY_NO_INTERACTION=1 \
   POETRY_VIRTUALENVS_CREATE=false \
   POETRY_CACHE_DIR='/var/cache/pypoetry' \
-  PATH="$PATH:/root/.poetry/bin"
-
+  PATH="$PATH:/root/.local/bin"
 
 # System deps:
 RUN apt-get update && apt-get upgrade -y \
@@ -38,21 +33,9 @@ RUN apt-get update && apt-get upgrade -y \
     gettext \
     git \
     libpq-dev \
-    # Defining build-time-only dependencies:
-    $BUILD_ONLY_PACKAGES \
-  # Installing `dockerize` utility:
-  # https://github.com/jwilder/dockerize
-  && wget "https://github.com/jwilder/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-linux-amd64-${DOCKERIZE_VERSION}.tar.gz" \
-  && tar -C /usr/local/bin -xzvf "dockerize-linux-amd64-${DOCKERIZE_VERSION}.tar.gz" \
-  && rm "dockerize-linux-amd64-${DOCKERIZE_VERSION}.tar.gz" && dockerize --version \
-  # Installing `tini` utility:
-  # https://github.com/krallin/tini
-  && wget -O /usr/local/bin/tini "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini" \
-  && chmod +x /usr/local/bin/tini && tini --version \
   # Installing `poetry` package manager:
   # https://github.com/python-poetry/poetry
-  && curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py' | python \
-  && poetry --version \
+  && curl -sSL https://install.python-poetry.org | python3 -  \
   # Removing build-time-only dependencies:
   && apt-get remove -y $BUILD_ONLY_PACKAGES \
   # Cleaning cache:
@@ -72,26 +55,20 @@ RUN chmod +x '/entrypoint.sh' \
   && chown web:web /var/www/flask/static /var/www/flask/media
 
 # Copy only requirements, to cache them in docker layer
-COPY --chown=web:web ./poetry.lock ./pyproject.toml /code/
+COPY --chown=web:web ./poetry.lock ./pyproject.toml  /code/
+COPY --chown=web:web ./ /code/
 
 # Project initialization:
 RUN echo "$FLASK_ENV" \
   && poetry install \
     $(if [ "$FLASK_ENV" = 'production' ]; then echo '--no-dev'; fi) \
     --no-interaction --no-ansi \
-  # Upgrading pip, it is insecure, remove after `pip@21.1`
-  && poetry run pip install -U pip \
   # Cleaning poetry installation's cache for production:
   && if [ "$FLASK_ENV" = 'production' ]; then rm -rf "$POETRY_CACHE_DIR"; fi
 
 # Running as non-root user:
 USER web
 
-# We customize how our app is loaded with the custom entrypoint:
-ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
-
-
-# The following stage is only for Prod:
-# https://wemake-flask-template.readthedocs.io/en/latest/pages/template/production.html
-FROM development_build AS production_build
-COPY --chown=web:web . /code
+# Run Application
+EXPOSE 5000
+CMD [ "poetry", "run", "flask" ]
