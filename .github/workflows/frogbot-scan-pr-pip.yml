@@ -29,6 +29,11 @@ jobs:
       # - name: export requirements.txt
       #   run: poetry export -f requirements.txt --output requirements.txt
 
+      - name: Install poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: Add poetry to PATH
+        run: export PATH=$HOME/.local/bin:$PATH
+
       - name: Let frogbot jump on it 
         uses: jfrog/frogbot@v2
         env:
