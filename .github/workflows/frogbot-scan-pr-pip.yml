@@ -69,7 +69,7 @@ jobs:
 
           # [Optional]
           # Xray Watches. Learn more about them here: https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches
-          JF_WATCHES: "keepitsecure"
+          # JF_WATCHES: "keepitsecure"
 
           # [Optional, default: "."]
           # Relative path to the project in the git repository
