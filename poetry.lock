@@ -758,7 +758,7 @@ reference = "jfrog"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e2cca997938036ada143e1bda73bd175f39fff4faa7587e6da48d679f2876727"
+content-hash = "bbb0d17f9e8cb18005eded69780fa5101f4f3792f72583f633010623ab806cbb"
 
 [metadata.files]
 attrs = [
