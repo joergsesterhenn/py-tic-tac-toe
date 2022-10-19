@@ -67,6 +67,7 @@ def two_active(game_model):
 def coordinates_taken(game_model, x, y):
     assert game_model.coordinates_taken(x, y) is True
 
+
 @then(parsers.parse("Coordinates {x:d} {y:d} are not taken"))
 def coordinates_taken(game_model, x, y):
     assert game_model.coordinates_taken(x, y) is False
