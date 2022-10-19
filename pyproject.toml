@@ -48,3 +48,9 @@ flask = "tictactoe.flask.main:run"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/joergsesterhenn/py-tic-tac-toe/issues"
+
+[[tool.poetry.source]]
+name = "jfrog"
+url = "https://joerg.sesterhenn@gmail.com:AKCp8nGu6oT5U11sZFNhpGeoxxVSGtCLirw33VaNzbBj7mYtFbjGPN7q1XuQYvyn97a8CVJp5@joergsesterhenn.jfrog.io/artifactory/api/pypi/default-pypi/simple"
+default = true
+secondary = false
