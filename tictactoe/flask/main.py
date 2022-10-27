@@ -8,3 +8,10 @@ def run():
     image_path = os.path.abspath("images")
     controller = TicTacToeGameController("TicTacToe", image_path)
     controller.run()
+
+
+def create_app():
+    """Run the flask App in gunicorn."""
+    image_path = os.path.abspath("images")
+    controller = TicTacToeGameController("TicTacToe", image_path)
+    return controller.get_app()

@@ -31,6 +31,7 @@ RUN apt-get update && apt-get upgrade -y \
 WORKDIR /code
 COPY ./ /code/
 RUN echo "$FLASK_DEBUG" \
-  && poetry install --no-interaction --no-ansi 
+  && poetry install --no-interaction --no-ansi
 EXPOSE 5000
-CMD [ "poetry", "run", "flask" ]
+#CMD [ "poetry", "run", "flask" ]
+ENTRYPOINT ["./docker/flask/entrypoint.sh"]

@@ -26,7 +26,7 @@ class TicTacToeGameController:
     meldung_text = ""
     images = [[]]
 
-    def __init__(self, name, image_path):
+    def __init__(self, name, image_path="/images"):
         self.app = Flask(
             name,
             static_url_path="",
@@ -36,6 +36,9 @@ class TicTacToeGameController:
         self.model = TicTacToeModel()
         self.images = [[0] * 3 for _ in range(3)]
         self.add_all_endpoints()
+
+    def get_app(self):
+        return self.app
 
     def run(self):
         """Run the flask App."""
