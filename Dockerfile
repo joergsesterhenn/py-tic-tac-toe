@@ -22,17 +22,20 @@ ENV FLASK_DEBUG=${FLASK_DEBUG} \
   POETRY_CACHE_DIR='/var/cache/pypoetry' \
   PATH="$PATH:/root/.local/bin"
 
+WORKDIR /code
+COPY ./ /code/
+
+RUN ["chmod", "+x", "./docker/flask/entrypoint.sh"]
+
 # System deps:
 RUN apt-get update && apt-get upgrade -y \
   && apt-get install --no-install-recommends -y \
     bash \
     curl \
   && curl -sSL https://install.python-poetry.org | python3 -
-WORKDIR /code
-COPY ./ /code/
 RUN echo "$FLASK_DEBUG" \
   && poetry install --no-interaction --no-ansi
 EXPOSE 5000
 #CMD [ "poetry", "run", "flask" ]
-RUN ["chmod", "+x", "/docker/flask/entrypoint.sh"]
-ENTRYPOINT ["/docker/flask/entrypoint.sh"]
+
+ENTRYPOINT ["./docker/flask/entrypoint.sh"]
