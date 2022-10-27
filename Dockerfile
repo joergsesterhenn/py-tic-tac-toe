@@ -34,4 +34,5 @@ RUN echo "$FLASK_DEBUG" \
   && poetry install --no-interaction --no-ansi
 EXPOSE 5000
 #CMD [ "poetry", "run", "flask" ]
-ENTRYPOINT ["./docker/flask/entrypoint.sh"]
+RUN ["chmod", "+x", "/docker/flask/entrypoint.sh"]
+ENTRYPOINT ["/docker/flask/entrypoint.sh"]
