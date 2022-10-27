@@ -4,10 +4,8 @@
 # https://www.mktr.ai/the-data-scientists-quick-guide-to-dockerfiles-with-examples/
 
 FROM python:3.9.15-slim-buster AS development_build
-
-ARG FLASK_ENV
-
-ENV FLASK_ENV=${FLASK_ENV} \
+ARG FLASK_DEBUG
+ENV FLASK_DEBUG=${FLASK_DEBUG} \
   # python:
   PYTHONFAULTHANDLER=1 \
   PYTHONUNBUFFERED=1 \
@@ -28,47 +26,11 @@ ENV FLASK_ENV=${FLASK_ENV} \
 RUN apt-get update && apt-get upgrade -y \
   && apt-get install --no-install-recommends -y \
     bash \
-    build-essential \
     curl \
-    gettext \
-    git \
-    libpq-dev \
-  # Installing `poetry` package manager:
-  # https://github.com/python-poetry/poetry
-  && curl -sSL https://install.python-poetry.org | python3 -  \
-  # Removing build-time-only dependencies:
-  && apt-get remove -y $BUILD_ONLY_PACKAGES \
-  # Cleaning cache:
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-
+  && curl -sSL https://install.python-poetry.org | python3 -
 WORKDIR /code
-
-# This is a special case. We need to run this script as an entry point:
-COPY ./docker/flask/entrypoint.sh /entrypoint.sh
-
-# Setting up proper permissions:
-RUN chmod +x '/entrypoint.sh' \
-  && groupadd -r web && useradd -d /code -r -g web web \
-  && chown web:web -R /code \
-  && mkdir -p /var/www/flask/static /var/www/flask/media \
-  && chown web:web /var/www/flask/static /var/www/flask/media
-
-# Copy only requirements, to cache them in docker layer
-COPY --chown=web:web ./poetry.lock ./pyproject.toml  /code/
-COPY --chown=web:web ./ /code/
-
-# Project initialization:
-RUN echo "$FLASK_ENV" \
-  && poetry install \
-    $(if [ "$FLASK_ENV" = 'production' ]; then echo '--no-dev'; fi) \
-    --no-interaction --no-ansi \
-  # Cleaning poetry installation's cache for production:
-  && if [ "$FLASK_ENV" = 'production' ]; then rm -rf "$POETRY_CACHE_DIR"; fi
-
-# Running as non-root user:
-USER web
-
-# Run Application
+COPY ./ /code/
+RUN echo "$FLASK_DEBUG" \
+  && poetry install --no-interaction --no-ansi 
 EXPOSE 5000
 CMD [ "poetry", "run", "flask" ]
