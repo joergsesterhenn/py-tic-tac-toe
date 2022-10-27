@@ -7,10 +7,10 @@ optional = false
 python-versions = ">=3.5"
 
 [package.extras]
-dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy (>=0.900,!=0.940)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "sphinx", "sphinx-notfound-page", "zope.interface"]
-docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
-tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "zope.interface"]
-tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
+docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
+tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
+tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "cloudpickle"]
 
 [package.source]
 type = "legacy"
@@ -39,7 +39,7 @@ optional = false
 python-versions = ">=3.6.0"
 
 [package.extras]
-unicode-backport = ["unicodedata2"]
+unicode_backport = ["unicodedata2"]
 
 [package.source]
 type = "legacy"
@@ -64,11 +64,11 @@ reference = "jfrog"
 
 [[package]]
 name = "colorama"
-version = "0.4.5"
+version = "0.4.6"
 description = "Cross-platform colored terminal text."
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 
 [package.source]
 type = "legacy"
@@ -101,6 +101,22 @@ description = "Docutils -- Python Documentation Utilities"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[package.source]
+type = "legacy"
+url = "https://joerg.sesterhenn@gmail.com:AKCp8nGu6oT5U11sZFNhpGeoxxVSGtCLirw33VaNzbBj7mYtFbjGPN7q1XuQYvyn97a8CVJp5@joergsesterhenn.jfrog.io/artifactory/api/pypi/default-pypi/simple"
+reference = "jfrog"
+
+[[package]]
+name = "exceptiongroup"
+version = "1.0.0"
+description = "Backport of PEP 654 (exception groups)"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+test = ["pytest (>=6)"]
 
 [package.source]
 type = "legacy"
@@ -187,9 +203,9 @@ python-versions = ">=3.7"
 zipp = ">=0.5"
 
 [package.extras]
-docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "jaraco.tidelift (>=1.4)"]
 perf = ["ipython"]
-testing = ["flake8 (<5)", "flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pyfakefs", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf (>=0.9.2)"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "packaging", "pyfakefs", "flufl.flake8", "pytest-perf (>=0.9.2)", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "importlib-resources (>=1.3)"]
 
 [package.source]
 type = "legacy"
@@ -260,9 +276,9 @@ pypiwin32 = {version = "*", markers = "sys_platform == \"win32\""}
 
 [package.extras]
 angle = ["kivy_deps.angle (>=0.3.2,<0.4.0)"]
-base = ["docutils", "kivy_deps.angle (>=0.3.2,<0.4.0)", "kivy_deps.glew (>=0.3.1,<0.4.0)", "kivy_deps.sdl2 (>=0.4.5,<0.5.0)", "pillow", "pygments", "pypiwin32"]
-dev = ["flake8", "funcparserlib (==1.0.0a0)", "kivy_deps.glew_dev (>=0.3.1,<0.4.0)", "kivy_deps.gstreamer_dev (>=0.3.3,<0.4.0)", "kivy_deps.sdl2_dev (>=0.4.5,<0.5.0)", "pre-commit", "pyinstaller", "pytest (>=3.6)", "pytest-benchmark", "pytest-cov", "pytest-timeout", "pytest_asyncio (!=0.11.0)", "sphinx", "sphinxcontrib-actdiag", "sphinxcontrib-blockdiag", "sphinxcontrib-nwdiag", "sphinxcontrib-seqdiag"]
-full = ["docutils", "ffpyplayer", "kivy_deps.angle (>=0.3.2,<0.4.0)", "kivy_deps.glew (>=0.3.1,<0.4.0)", "kivy_deps.gstreamer (>=0.3.3,<0.4.0)", "kivy_deps.sdl2 (>=0.4.5,<0.5.0)", "pillow", "pygments", "pypiwin32"]
+base = ["pillow", "docutils", "pygments", "kivy_deps.angle (>=0.3.2,<0.4.0)", "kivy_deps.sdl2 (>=0.4.5,<0.5.0)", "kivy_deps.glew (>=0.3.1,<0.4.0)", "pypiwin32"]
+dev = ["pytest (>=3.6)", "pytest-cov", "pytest_asyncio (!=0.11.0)", "pytest-timeout", "pytest-benchmark", "pyinstaller", "sphinx", "sphinxcontrib-blockdiag", "sphinxcontrib-seqdiag", "sphinxcontrib-actdiag", "sphinxcontrib-nwdiag", "funcparserlib (==1.0.0a0)", "flake8", "pre-commit", "kivy_deps.gstreamer_dev (>=0.3.3,<0.4.0)", "kivy_deps.sdl2_dev (>=0.4.5,<0.5.0)", "kivy_deps.glew_dev (>=0.3.1,<0.4.0)"]
+full = ["pillow", "docutils", "pygments", "ffpyplayer", "kivy_deps.gstreamer (>=0.3.3,<0.4.0)", "kivy_deps.angle (>=0.3.2,<0.4.0)", "kivy_deps.sdl2 (>=0.4.5,<0.5.0)", "kivy_deps.glew (>=0.3.1,<0.4.0)", "pypiwin32"]
 glew = ["kivy_deps.glew (>=0.3.1,<0.4.0)"]
 gstreamer = ["kivy_deps.gstreamer (>=0.3.3,<0.4.0)"]
 media = ["ffpyplayer", "kivy_deps.gstreamer (>=0.3.3,<0.4.0)"]
@@ -275,7 +291,7 @@ url = "https://joerg.sesterhenn@gmail.com:AKCp8nGu6oT5U11sZFNhpGeoxxVSGtCLirw33V
 reference = "jfrog"
 
 [[package]]
-name = "kivy-deps-angle"
+name = "kivy-deps.angle"
 version = "0.3.2"
 description = "Repackaged binary dependency of Kivy."
 category = "main"
@@ -288,7 +304,7 @@ url = "https://joerg.sesterhenn@gmail.com:AKCp8nGu6oT5U11sZFNhpGeoxxVSGtCLirw33V
 reference = "jfrog"
 
 [[package]]
-name = "kivy-deps-glew"
+name = "kivy-deps.glew"
 version = "0.3.1"
 description = "Repackaged binary dependency of Kivy."
 category = "main"
@@ -301,7 +317,7 @@ url = "https://joerg.sesterhenn@gmail.com:AKCp8nGu6oT5U11sZFNhpGeoxxVSGtCLirw33V
 reference = "jfrog"
 
 [[package]]
-name = "kivy-deps-sdl2"
+name = "kivy-deps.sdl2"
 version = "0.4.5"
 description = "Repackaged binary dependency of Kivy."
 category = "main"
@@ -341,7 +357,7 @@ python-versions = ">=3.7"
 MarkupSafe = ">=0.9.2"
 
 [package.extras]
-babel = ["Babel"]
+babel = ["babel"]
 lingua = ["lingua"]
 testing = ["pytest"]
 
@@ -418,7 +434,7 @@ parse = {version = ">=1.18.0", markers = "python_version >= \"3.0\""}
 six = ">=1.11"
 
 [package.extras]
-develop = ["coverage (>=4.4)", "pytest (<5.0)", "pytest (>=5.0)", "pytest-cov", "pytest-html (>=1.19.0)", "tox (>=2.8)"]
+develop = ["coverage (>=4.4)", "pytest-html (>=1.19.0)", "pytest-cov", "tox (>=2.8)", "pytest (<5.0)", "pytest (>=5.0)"]
 docs = ["sphinx (>=1.2)"]
 
 [package.source]
@@ -507,7 +523,7 @@ optional = false
 python-versions = ">=3.6.8"
 
 [package.extras]
-diagrams = ["jinja2", "railroad-diagrams"]
+diagrams = ["railroad-diagrams", "jinja2"]
 
 [package.source]
 type = "legacy"
@@ -532,7 +548,7 @@ reference = "jfrog"
 
 [[package]]
 name = "pytest"
-version = "7.1.3"
+version = "7.2.0"
 description = "pytest: simple powerful testing with Python"
 category = "dev"
 optional = false
@@ -541,11 +557,11 @@ python-versions = ">=3.7"
 [package.dependencies]
 attrs = ">=19.2.0"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
+exceptiongroup = {version = ">=1.0.0rc8", markers = "python_version < \"3.11\""}
 iniconfig = "*"
 packaging = "*"
 pluggy = ">=0.12,<2.0"
-py = ">=1.8.2"
-tomli = ">=1.0.0"
+tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
@@ -572,7 +588,7 @@ py = "*"
 pytest = ">=5.0"
 
 [package.extras]
-testing = ["mypy (==0.910)", "tox"]
+testing = ["tox", "mypy (==0.910)"]
 
 [package.source]
 type = "legacy"
@@ -592,7 +608,7 @@ coverage = {version = ">=5.2.1", extras = ["toml"]}
 pytest = ">=4.6"
 
 [package.extras]
-testing = ["fields", "hunter", "process-tests", "pytest-xdist", "six", "virtualenv"]
+testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtualenv"]
 
 [package.source]
 type = "legacy"
@@ -613,7 +629,7 @@ pytest = ">=5.2"
 Werkzeug = ">=0.7"
 
 [package.extras]
-docs = ["Sphinx", "sphinx-rtd-theme"]
+docs = ["sphinx", "sphinx-rtd-theme"]
 
 [package.source]
 type = "legacy"
@@ -632,7 +648,7 @@ python-versions = ">=3.7"
 pytest = ">=5.0"
 
 [package.extras]
-dev = ["pre-commit", "pytest-asyncio", "tox"]
+dev = ["pre-commit", "tox", "pytest-asyncio"]
 
 [package.source]
 type = "legacy"
@@ -668,7 +684,7 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
-use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
+use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
 
 [package.source]
 type = "legacy"
@@ -710,8 +726,8 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
 
 [package.extras]
-brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
-secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
+brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "urllib3-secure-extra", "ipaddress"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [package.source]
@@ -740,15 +756,15 @@ reference = "jfrog"
 
 [[package]]
 name = "zipp"
-version = "3.9.0"
+version = "3.10.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)"]
-testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools", "more-itertools", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)"]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "jaraco.tidelift (>=1.4)"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "jaraco.itertools", "func-timeout", "jaraco.functools", "more-itertools", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)"]
 
 [package.source]
 type = "legacy"
@@ -778,8 +794,8 @@ click = [
     {file = "click-8.1.3.tar.gz", hash = "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"},
 ]
 colorama = [
-    {file = "colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
-    {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
+    {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
+    {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
 coverage = [
     {file = "coverage-6.5.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:ef8674b0ee8cc11e2d574e3e2998aea5df5ab242e012286824ea3c6970580e53"},
@@ -837,6 +853,10 @@ docutils = [
     {file = "docutils-0.19-py3-none-any.whl", hash = "sha256:5e1de4d849fee02c63b040a4a3fd567f4ab104defd8a5511fbbc24a8a017efbc"},
     {file = "docutils-0.19.tar.gz", hash = "sha256:33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"},
 ]
+exceptiongroup = [
+    {file = "exceptiongroup-1.0.0-py3-none-any.whl", hash = "sha256:2ac84b496be68464a2da60da518af3785fff8b7ec0d090a581604bc870bdee41"},
+    {file = "exceptiongroup-1.0.0.tar.gz", hash = "sha256:affbabf13fb6e98988c38d9c5650e701569fe3c1de3233cfb61c5f33774690ad"},
+]
 flake8 = [
     {file = "flake8-5.0.4-py2.py3-none-any.whl", hash = "sha256:7a1cf6b73744f5806ab95e526f6f0d8c01c66d7bbe349562d22dfca20610b248"},
     {file = "flake8-5.0.4.tar.gz", hash = "sha256:6fbe320aad8d6b95cec8b8e47bc933004678dc63095be98528b7bdd2a9f510db"},
@@ -891,7 +911,7 @@ kivy = [
     {file = "Kivy-2.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:260f88aff72ba2269e6733598e9081533072769ed0bec2d020a8bd010d1b6751"},
     {file = "Kivy-2.1.0.tar.gz", hash = "sha256:3a16f3ba3b70d5e7943d7ee5c4cbbd52bc4675f38da4bf2b3005c1639d6c04b3"},
 ]
-kivy-deps-angle = [
+"kivy-deps.angle" = [
     {file = "kivy_deps.angle-0.3.2-cp310-cp310-win32.whl", hash = "sha256:b7c78cadc20978185caf1a12faa98188c6ad9b4cb70245e0bff8d56c3da84f64"},
     {file = "kivy_deps.angle-0.3.2-cp310-cp310-win_amd64.whl", hash = "sha256:4fe686fdee42953a444297bc162d8f3659f10aad21a4116fe3c078c940f04419"},
     {file = "kivy_deps.angle-0.3.2-cp37-cp37m-win32.whl", hash = "sha256:b38e4da8dbe5933f56b0386561d89145b345bebaa61a1025d9f0988c99df3f7c"},
@@ -901,7 +921,7 @@ kivy-deps-angle = [
     {file = "kivy_deps.angle-0.3.2-cp39-cp39-win32.whl", hash = "sha256:f4fa1548d9a74043848979d0947be32c879fc3ac0cf0adab9f727ae1806441c0"},
     {file = "kivy_deps.angle-0.3.2-cp39-cp39-win_amd64.whl", hash = "sha256:e9f11c08a8994f898205d999a85705e102488264f4d2aa62303e51e01ccdc125"},
 ]
-kivy-deps-glew = [
+"kivy-deps.glew" = [
     {file = "kivy_deps.glew-0.3.1-cp310-cp310-win32.whl", hash = "sha256:8f4b3ed15acb62474909b6d41661ffb4da9eb502bb5684301fb2da668f288a58"},
     {file = "kivy_deps.glew-0.3.1-cp310-cp310-win_amd64.whl", hash = "sha256:aef2d2a93f129d8425c75234e7f6cc0a34b59a4aee67f6d2cd7a5fdfa9915b53"},
     {file = "kivy_deps.glew-0.3.1-cp37-cp37m-win32.whl", hash = "sha256:5bf6a63fe9cc4fe7bbf280ec267ec8c47914020a1175fb22152525ff1837b436"},
@@ -911,7 +931,7 @@ kivy-deps-glew = [
     {file = "kivy_deps.glew-0.3.1-cp39-cp39-win32.whl", hash = "sha256:4e377ed97670dfda619a1b63a82345a8589be90e7c616a458fba2810708810b1"},
     {file = "kivy_deps.glew-0.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:081a09b92f7e7817f489f8b6b31c9c9623661378de1dce1d6b097af5e7d42b45"},
 ]
-kivy-deps-sdl2 = [
+"kivy-deps.sdl2" = [
     {file = "kivy_deps.sdl2-0.4.5-cp310-cp310-win32.whl", hash = "sha256:1884e0ce5d1f47ccf63b55021e2b2c04eae433111f2c246a82f4c06697624def"},
     {file = "kivy_deps.sdl2-0.4.5-cp310-cp310-win_amd64.whl", hash = "sha256:97be14de619deb853867b66355a1eea9f26d572c94888e934ca9fd8fcf3593b2"},
     {file = "kivy_deps.sdl2-0.4.5-cp37-cp37m-win32.whl", hash = "sha256:660c23993aa0df2de18dcc4e0fce2e1344e800469a702f49459f18762ebe5aa0"},
@@ -1014,8 +1034,8 @@ pypiwin32 = [
     {file = "pypiwin32-223.tar.gz", hash = "sha256:71be40c1fbd28594214ecaecb58e7aa8b708eabfa0125c8a109ebd51edbd776a"},
 ]
 pytest = [
-    {file = "pytest-7.1.3-py3-none-any.whl", hash = "sha256:1377bda3466d70b55e3f5cecfa55bb7cfcf219c7964629b967c37cf0bda818b7"},
-    {file = "pytest-7.1.3.tar.gz", hash = "sha256:4f365fec2dff9c1162f834d9f18af1ba13062db0c708bf7b946f8a5c76180c39"},
+    {file = "pytest-7.2.0-py3-none-any.whl", hash = "sha256:892f933d339f068883b6fd5a459f03d85bfcb355e4981e146d2c7616c21fef71"},
+    {file = "pytest-7.2.0.tar.gz", hash = "sha256:c4014eb40e10f11f355ad4e3c2fb2c6c6d1919c73f3b5a433de4708202cade59"},
 ]
 pytest-bdd = [
     {file = "pytest-bdd-6.0.1.tar.gz", hash = "sha256:f894e589c9ee9e6a66c54e4917fafbbd11801fce9ce01e9b56dc15ccc57e4620"},
@@ -1070,6 +1090,6 @@ werkzeug = [
     {file = "Werkzeug-2.2.2.tar.gz", hash = "sha256:7ea2d48322cc7c0f8b3a215ed73eabd7b5d75d0b50e31ab006286ccff9e00b8f"},
 ]
 zipp = [
-    {file = "zipp-3.9.0-py3-none-any.whl", hash = "sha256:972cfa31bc2fedd3fa838a51e9bc7e64b7fb725a8c00e7431554311f180e9980"},
-    {file = "zipp-3.9.0.tar.gz", hash = "sha256:3a7af91c3db40ec72dd9d154ae18e008c69efe8ca88dde4f9a731bb82fe2f9eb"},
+    {file = "zipp-3.10.0-py3-none-any.whl", hash = "sha256:4fcb6f278987a6605757302a6e40e896257570d11c51628968ccb2a47e80c6c1"},
+    {file = "zipp-3.10.0.tar.gz", hash = "sha256:7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"},
 ]
