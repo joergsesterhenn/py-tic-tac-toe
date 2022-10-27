@@ -32,7 +32,6 @@ generate-setup-file = false
 python = "^3.9"
 flask = "2.2.2"
 kivy = "2.1.0"
-py = "1.11.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "5.0.4"
