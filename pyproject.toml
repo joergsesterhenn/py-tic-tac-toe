@@ -31,7 +31,7 @@ generate-setup-file = false
 [tool.poetry.dependencies]
 python = "^3.9"
 flask = "2.2.3"
-kivy = "2.1.0"
+kivy = "2.2.0"
 gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
